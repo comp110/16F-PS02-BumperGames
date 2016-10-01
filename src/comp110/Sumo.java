@@ -2,11 +2,11 @@ package comp110;
 
 import comp110.engine.BumperGame;
 import comp110.engine.GameEngine;
-import comp110.pieces.Ship;
-import javafx.scene.paint.Color;
-
 import comp110.events.KeyboardEvent;
 import comp110.events.CollisionEvent;
+import comp110.pieces.Ship;
+
+import javafx.scene.paint.Color;
 
 /**
  * Author:
