@@ -42,6 +42,7 @@ public class GameEngine extends CollisionAdapter {
   private Timeline _timeline;
   private boolean _running;
   private double _lastCollision;
+  private Group _gameBoard;
 
   public GameEngine() {
     _bodyToPieceMap = new HashMap<Body, Piece>();
@@ -146,6 +147,14 @@ public class GameEngine extends CollisionAdapter {
     piece.updateGraphics();
   }
 
+  public void removePiece(Piece piece) {
+    Body body = piece.getPhysics();
+    _world.removeBody(piece.getPhysics());
+    _bodyToPieceMap.remove(body);
+    _pieces.remove(piece);
+    _gameBoard.getChildren().remove(piece.getGraphics());
+  }
+
   public boolean collision(Body bodyA, BodyFixture fixtureA, Body bodyB, BodyFixture fixtureB,
       Penetration penetration) {
     if (_collisionHandler != null) {
@@ -174,16 +183,16 @@ public class GameEngine extends CollisionAdapter {
   public Group getGraphics() {
     Group container = new Group();
 
-    Group gameBoard = new Group();
+    _gameBoard = new Group();
     for (Piece piece : _pieces) {
-      gameBoard.getChildren().add(piece.getGraphics());
+      _gameBoard.getChildren().add(piece.getGraphics());
     }
-    Bounds bounds = gameBoard.getChildren().get(0).getLayoutBounds();
-    gameBoard.setTranslateX(bounds.getWidth() * 3.5);
-    gameBoard.setTranslateY(bounds.getHeight() * 3.5);
-    gameBoard.setScaleX(8.0);
-    gameBoard.setScaleY(8.0);
-    container.getChildren().add(gameBoard);
+    Bounds bounds = _gameBoard.getChildren().get(0).getLayoutBounds();
+    _gameBoard.setTranslateX(bounds.getWidth() * 3.5);
+    _gameBoard.setTranslateY(bounds.getHeight() * 3.5);
+    _gameBoard.setScaleX(8.0);
+    _gameBoard.setScaleY(8.0);
+    container.getChildren().add(_gameBoard);
 
     return container;
   }
