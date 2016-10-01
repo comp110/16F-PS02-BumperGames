@@ -83,8 +83,8 @@ public class GameGUI extends Application {
       TimeTickHandler tickAware = (TimeTickHandler) _game;
       tickAware.handleTick(event);
     }
-    _awayScore.setText(String.format("%.1f", _game.getAwayScore()));
-    _homeScore.setText(String.format("%.1f", _game.getHomeScore()));
+    _awayScore.setText(String.format("%.1f", _game.getAwayShip().getScore()));
+    _homeScore.setText(String.format("%.1f", _game.getHomeShip().getScore()));
   }
 
   private Scene initScene() {
@@ -120,10 +120,10 @@ public class GameGUI extends Application {
   private Pane initScoreboard(Group graphics) {
     Pane scoreboard = new Pane();
 
-    _awayScore = this.initLabel(_game.getAwayColor(), 20.0);
+    _awayScore = this.initLabel(_game.getAwayShip().getColor(), 20.0);
     scoreboard.getChildren().add(_awayScore);
 
-    _homeScore = this.initLabel(_game.getHomeColor(), 400.0);
+    _homeScore = this.initLabel(_game.getHomeShip().getColor(), 400.0);
     scoreboard.getChildren().add(_homeScore);
 
     HBox hbox = new HBox();

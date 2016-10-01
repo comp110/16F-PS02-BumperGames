@@ -23,31 +23,20 @@ import comp110.events.CollisionEvent;
 public class Sumo implements BumperGame {
 
   /*
-   * First we're declaring instance variables for keeping score.
-   * 
-   * Notice we can declare two variables of the same type in a single line by
-   * separating them with a comma:
+   * First we're declaring two Ship instance variables.
    */
-  private double _homeScore, _awayScore;
+  private Ship _homeShip, _awayShip;
 
   /*
-   * Next we're declaring an instance variable to hold a reference to the game
+   * We're declaring an instance variable to hold a reference to the game
    * engine. We'll need this to stop the game once there is a winner.
    */
   private GameEngine _gameEngine;
 
   /*
-   * Finally, here we're declaring two Ship instance variables.
-   */
-  private Ship _homeShip, _awayShip;
-
-  /*
    * Constructor: initialize our instance variables
    */
   public Sumo() {
-    _homeScore = 0.0;
-    _awayScore = 0.0;
-
     // TODO: 1.1 Initialize ships.
   }
 
@@ -57,22 +46,6 @@ public class Sumo implements BumperGame {
     _gameEngine = gameEngine;
 
     // TODO: 1.2 Add pieces to the game engine.
-  }
-
-  public double getHomeScore() {
-    return _homeScore;
-  }
-
-  public double getAwayScore() {
-    return _awayScore;
-  }
-
-  public Color getHomeColor() {
-    return Color.CORNFLOWERBLUE;
-  }
-
-  public Color getAwayColor() {
-    return Color.DARKSEAGREEN;
   }
 
   public Ship getHomeShip() {

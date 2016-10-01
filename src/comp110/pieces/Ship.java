@@ -24,6 +24,7 @@ public class Ship implements Piece {
   private BodyFixture _physicsHull;
   private Color _color;
 
+  private double _score;
   private double _mass;
   private double _bounciness;
   private double _friction;
@@ -43,6 +44,7 @@ public class Ship implements Piece {
   private double _thrust, _torque;
 
   public Ship(Color color, double radius, double centerX, double centerY, double startAngle) {
+    _score = 0.0;
     _thrust = 0.0;
     _torque = 0.0;
     _startAngle = startAngle;
@@ -54,6 +56,14 @@ public class Ship implements Piece {
     this.initGraphics();
     this.updateGraphics();
     this.setColor(color);
+  }
+
+  public void setScore(double score) {
+    _score = score;
+  }
+
+  public double getScore() {
+    return _score;
   }
 
   public void setThrust(double thrust) {

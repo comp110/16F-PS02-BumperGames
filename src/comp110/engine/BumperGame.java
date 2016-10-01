@@ -12,14 +12,6 @@ public interface BumperGame {
 
   public void setup(GameEngine engine);
 
-  public double getHomeScore();
-
-  public Color getHomeColor();
-
-  public double getAwayScore();
-
-  public Color getAwayColor();
-
   public Ship getHomeShip();
 
   public Ship getAwayShip();
