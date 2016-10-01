@@ -9,6 +9,6 @@ import comp110.events.CollisionEvent;
  */
 public interface CollisionHandler {
 
-  public void handleCollision(CollisionEvent event);
+  public void handleCollision(CollisionEvent collision);
 
 }
